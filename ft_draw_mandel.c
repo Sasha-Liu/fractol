@@ -6,7 +6,7 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:57:37 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/03 15:57:53 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/03 16:02:33 by hsliu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	ft_paint_pixel(t_image *img, int x, int y, int n)
 	index = y * img->line_byte + x * img->pixel_bit / 8;
 	factor = (255 / MAX_ITERA) * 2; 
 	if (n < MAX_ITERA / 2)
-		(img->buffer)[index] = ft_color_to_int(0, 0, n * factor);
+		(img->buffer)[index] = ft_color_to_int(n * factor * 0.5, 0, n * factor);
 	else
 		(img->buffer)[index] = ft_color_to_int(n * factor, n * factor, 255);
 
