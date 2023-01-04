@@ -6,7 +6,7 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:09:19 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/03 16:02:36 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/04 16:12:37 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	*ft_init_win_img(t_window *win, t_image *img)
 	}
 	img->buffer = mlx_get_data_addr(img->img, &(img->pixel_bit),
 			&(img->line_byte), &(img->endian));
-	img->x_cent = 0;
-	img->y_cent = 0;
+	img->a = -2;
+	img->b = 2;
 	img->epsilon = 0.002;
 	win->img = img;
 	img->win = win;

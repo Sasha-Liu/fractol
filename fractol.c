@@ -6,7 +6,7 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:02:48 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/03 15:52:03 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/04 16:29:00 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	if (ft_init_win_img(&win, &img) == NULL)
 		return (0);
 	ft_set_hook(&win);
-	ft_draw_mandel(&img);
+	ft_draw_mandel(&img, img.a, img.b);
 	mlx_put_image_to_window(win.mlx, win.win, img.img, 0, 0);
 	mlx_loop(win.mlx);
 }

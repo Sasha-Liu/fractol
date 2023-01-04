@@ -6,7 +6,7 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:49:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/03 16:02:38 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/04 16:29:27 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ typedef struct s_window
 	t_image	*img;
 }	t_window;
 
+/*	a and b means a + bi, 
+ *	it represent the top left corner of the complex plane   
+ */
 typedef struct s_image
 {
 	void		*img;
@@ -38,15 +41,15 @@ typedef struct s_image
 	int			pixel_bit;
 	int			line_byte;
 	int			endian;
-	double		x_cent;
-	double		y_cent;
+	double		a;
+	double		b;
 	double		epsilon;
 	t_window	*win;
 }	t_image;
 
 void	*ft_init_win_img(t_window *win, t_image *img);
 void	ft_set_hook(t_window *w);
-void	ft_draw_mandel(t_image *img);
+void	ft_draw_mandel(t_image *img, double a, double b);
 int		ft_color_to_int(double red, double green, double blue);
 
 

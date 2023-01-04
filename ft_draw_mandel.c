@@ -6,7 +6,7 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:57:37 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/03 16:02:33 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/04 16:28:11 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,17 @@ static int	ft_is_mandel(double c_re, double c_im);
 static void	ft_complex_square(double *real, double *img);
 static void	ft_paint_pixel(t_image *img, int x, int y, int n);
 
-/*	x_cent and y_cent is the center of complex plane
+/*	a and b is the top left corner of complex plane
  * 	epsilon is the distance between exch pixel
  */
-void	ft_draw_mandel(t_image *img)
+void	ft_draw_mandel(t_image *img, double min_re, double max_im)
 {
-	double	min_re;
-	double	max_im;
 	double	c_re;
 	double	c_im;
 	int		x;
 	int		y;
 	int		n;
 
-	min_re = img->x_cent - WIDTH * img->epsilon / 2;
-	max_im = img->y_cent + HEIGHT * img->epsilon / 2;
 	y = 0;
 	while (y < HEIGHT)
 	{
