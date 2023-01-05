@@ -6,7 +6,7 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:36:00 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/05 10:32:14 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 14:13:26 by hsliu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_key_down_hook(int keycode, void *param)
 		img->b -= 0.01;
 	else
 		return (0);
-	ft_draw_mandel(img, img->a, img->b);
+	ft_draw_which(img, img->a, img->b);
 	mlx_put_image_to_window(win->mlx, win->win, img->img, 0, 0);
 	return (0);
 }

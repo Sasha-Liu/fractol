@@ -6,7 +6,7 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:32:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/05 13:26:56 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 14:13:43 by hsliu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int ft_mouse_hook(int button, int x, int y, void *param)
 	img->a = img->a + x * old_ep - x * new_ep;
 	img->b = img->b - (HEIGHT - y) * old_ep + (HEIGHT - y) * new_ep;
 	img->epsilon = new_ep;
-	ft_draw_mandel(img, img->a, img->b);
+	ft_draw_which(img, img->a, img->b);
 	mlx_put_image_to_window(win->mlx, win->win, img->img, 0, 0);
 	return (0);
 }
