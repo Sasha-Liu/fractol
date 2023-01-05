@@ -6,7 +6,7 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:36:00 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/04 16:30:59 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/05 10:32:14 by hsliu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_set_hook(t_window *w)
 	mlx_hook(w->win, 2, 0, ft_key_down_hook, w);
 	mlx_hook(w->win, 3, 0, ft_key_up_hook, w);
 	mlx_hook(w->win, 17, 0, ft_destroy_hook, w);
-	//mlx_mouse_hook(w->win, ft_mouse_hook, w);
+	mlx_mouse_hook(w->win, ft_mouse_hook, w);
 }
 
 /* left = 123
@@ -43,13 +43,13 @@ int	ft_key_down_hook(int keycode, void *param)
 	win = (t_window *)param;
 	img = win->img;
 	if (keycode == 123)
-		img->x_cent += 0.01;
+		img->a += 0.01;
 	else if (keycode == 125)
-		img->y_cent += 0.01;
+		img->b += 0.01;
 	else if (keycode == 124)
-		img->x_cent -= 0.01;
+		img->a -= 0.01;
 	else if (keycode == 126)
-		img->y_cent -= 0.01;
+		img->b -= 0.01;
 	else
 		return (0);
 	ft_draw_mandel(img, img->a, img->b);

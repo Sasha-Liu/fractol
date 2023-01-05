@@ -6,12 +6,12 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:57:37 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/04 16:28:11 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/05 12:58:03 by hsliu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
+#include <stdio.h>
 static int	ft_is_mandel(double c_re, double c_im);
 static void	ft_complex_square(double *real, double *img);
 static void	ft_paint_pixel(t_image *img, int x, int y, int n);
