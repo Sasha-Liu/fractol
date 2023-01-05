@@ -6,7 +6,7 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:49:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/05 14:36:50 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 15:04:11 by hsliu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "mlx/mlx.h"
 # include <stddef.h>
 # include <stdlib.h>
+# include "libftprintf/ft_printf.h"
+# include "libftprintf/libft/libft.h"
 
 # define WIDTH	1000
 # define HEIGHT 800
@@ -55,7 +57,10 @@ void	*ft_init_win_img(t_window *win, t_image *img);
 
 /****** event hooks ******/
 void	ft_set_hook(t_window *w);
-int		ft_mouse_hook(int button, int x, int y, void *param);
+int		ft_zoom_hook(int button, int x, int y, void *param);
+int		ft_key_up_hook(int keycode, void *param);
+int		ft_key_down_hook(int keycode, void *param);
+int		ft_destroy_hook(void *param);
 
 /****** drawing function  ******/
 void	ft_draw_which(t_image *img, double min_re, double max_im);

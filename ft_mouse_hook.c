@@ -6,7 +6,7 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:32:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/05 14:13:43 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 14:57:56 by hsliu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 //only mouse scroll event
 //because obviously, the mouse position x and y are calculated diffrently
 //depending on whether you click or scroll the mouse
-int ft_mouse_hook(int button, int x, int y, void *param)
+int ft_zoom_hook(int button, int x, int y, void *param)
 {
 	t_window	*win;
 	t_image		*img;
