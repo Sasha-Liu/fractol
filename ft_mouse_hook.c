@@ -6,7 +6,7 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:32:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/05 13:02:54 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 13:26:56 by hsliu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int ft_mouse_hook(int button, int x, int y, void *param)
 	img = win->img;
 	old_ep = img->epsilon;
 	if (button == 5)
-		new_ep = old_ep / 1.1;
+		new_ep = old_ep / SCALE;
 	else if (button == 4)
-		new_ep = old_ep * 1.1;
+		new_ep = old_ep * SCALE;
 	else
 		return (0);
 	img->a = img->a + x * old_ep - x * new_ep;

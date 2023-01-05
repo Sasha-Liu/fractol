@@ -6,7 +6,7 @@
 /*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:57:37 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/05 12:58:03 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/05 13:55:46 by hsliu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,28 @@ static void	ft_paint_pixel(t_image *img, int x, int y, int n)
 {
 	int		index;
 	double	factor;
+	int		color;
 
 	index = y * img->line_byte + x * img->pixel_bit / 8;
-	factor = (255 / MAX_ITERA) * 2; 
+	factor = 255 / MAX_ITERA;
 	if (n < MAX_ITERA / 2)
-		(img->buffer)[index] = ft_color_to_int(n * factor * 0.5, 0, n * factor);
+		color = ft_color_to_int(n * factor, 0, n * factor * 2);
 	else
-		(img->buffer)[index] = ft_color_to_int(n * factor, n * factor, 255);
-
+		color = ft_color_to_int(127, n * factor * 2, 255);
+	if (img->endian == 1)
+    {
+        img->buffer[index + 0] = (color >> 24);
+        img->buffer[index + 1] = (color >> 16) & 0xFF;
+        img->buffer[index + 2] = (color >> 8) & 0xFF;
+        img->buffer[index + 3] = (color) & 0xFF;
+    }
+    else if (img->endian == 0)
+    {
+        img->buffer[index + 0] = (color) & 0xFF;
+        img->buffer[index + 1] = (color >> 8) & 0xFF;
+        img->buffer[index + 2] = (color >> 16) & 0xFF;
+        img->buffer[index + 3] = (color >> 24);
+    }
 }
 
 static int	ft_is_mandel(double c_re, double c_im)
