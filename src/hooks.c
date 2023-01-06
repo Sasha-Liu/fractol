@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:36:00 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 14:07:54 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 14:58:15 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_set_hook(t_window *w)
 	mlx_do_key_autorepeaton(w->mlx);
 	mlx_hook(w->win, 2, 0, ft_key_down_hook, w);
 	mlx_hook(w->win, 3, 0, ft_key_up_hook, w);
+	mlx_hook(w->win, 6, 0, ft_motion_hook, w);
 	mlx_hook(w->win, 17, 0, ft_destroy_hook, w);
 	mlx_mouse_hook(w->win, ft_zoom_hook, w);
 }
