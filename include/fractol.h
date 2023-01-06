@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:49:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 14:06:34 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 14:31:59 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@ typedef struct s_img_thread{
 	pthread_t	id;
 	int			num;
 }t_img_thread;
+
+/****** manage input and errors  ******/
+int	ft_parse_input(int argc, char **argv, t_image *img);
+
 
 /****** initialize ******/
 void	*ft_init_win_img(t_window *win, t_image *img);
