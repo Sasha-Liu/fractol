@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:02:48 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 15:03:42 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 16:01:43 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	{
 		mlx_destroy_image(win.mlx, img.img);
 		mlx_destroy_window(win.mlx, win.win);
-		return (0);	
+		return (0);
 	}
 	ft_set_hook(&win);
 	ft_draw(&img);
@@ -33,7 +33,6 @@ int	main(int argc, char **argv)
 
 int	ft_parse_input(int argc, char **argv, t_image *img)
 {
-	
 	if (argc == 2 && ft_strncmp(argv[1], "mandelbrot", 11) == 0)
 	{
 		img->which = 0;
@@ -44,15 +43,44 @@ int	ft_parse_input(int argc, char **argv, t_image *img)
 		img->which = 2;
 		return (0);
 	}
-	else if (argc == 2 && ft_strncmp(argv[1], "julia", 6) == 0)
+	else if (argc == 4 && ft_strncmp(argv[1], "julia", 6) == 0)
 	{
 		img->which = 1;
-		img->julia_a = 0.333;
-		img->julia_b = 0.288;
+		img->julia_a = ft_atod(argv[2]);
+		img->julia_b = ft_atod(argv[3]);
+		printf("%f\n%f\n", img->julia_a, img->julia_b);
 		return (0);
 	}
 	ft_printf("Usage: ./fractol FRACTAL_NAME \n  Example:\n");
 	ft_printf("\t./fractol mandelbrot\n\t./fractol julia");
 	ft_printf("\n\t./fractol \"burning ship\"\n");
 	return (1);
+}
+
+//convert asci to double
+double	ft_atod(char *str)
+{
+	double	sum;
+	double	power;
+	int		i;
+
+	sum = 0;
+	power = 1;
+	i = 0;
+	while (str[i] >= '0' && str[i] <= '9' && str[i] != '.')
+	{
+		sum = sum * 10 + (double)(str[i] - '0');
+		i++;
+	}
+	if (str[i] != '.')
+		return (sum);
+	else
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		power = power / 10;
+		sum += power * (double)(str[i] - '0');
+		i++;
+	}
+	return (sum);
 }
