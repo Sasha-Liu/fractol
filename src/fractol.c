@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:02:48 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 16:01:43 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 16:32:35 by hsliu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_parse_input(int argc, char **argv, t_image *img)
 		return (0);
 	}
 	ft_printf("Usage: ./fractol FRACTAL_NAME \n  Example:\n");
-	ft_printf("\t./fractol mandelbrot\n\t./fractol julia");
+	ft_printf("\t./fractol mandelbrot\n\t./fractol julia 0.33 0.28");
 	ft_printf("\n\t./fractol \"burning ship\"\n");
 	return (1);
 }
