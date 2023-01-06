@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:02:48 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 16:32:35 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 16:36:04 by hsliu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	ft_parse_input(int argc, char **argv, t_image *img)
 		img->which = 1;
 		img->julia_a = ft_atod(argv[2]);
 		img->julia_b = ft_atod(argv[3]);
-		printf("%f\n%f\n", img->julia_a, img->julia_b);
 		return (0);
 	}
 	ft_printf("Usage: ./fractol FRACTAL_NAME \n  Example:\n");
