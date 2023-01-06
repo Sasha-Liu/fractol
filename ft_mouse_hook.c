@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:32:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 10:53:13 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 12:02:17 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_zoom_hook(int button, int x, int y, void *param)
 	img->a = img->a + x * old_ep - x * new_ep;
 	img->b = img->b - (HEIGHT - y) * old_ep + (HEIGHT - y) * new_ep;
 	img->epsilon = new_ep;
-	ft_draw(img, img->a, img->b);
+	ft_draw(img);
 	mlx_put_image_to_window(win->mlx, win->win, img->img, 0, 0);
 	return (0);
 }
