@@ -6,7 +6,7 @@
 #    By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 13:55:26 by hsliu             #+#    #+#              #
-#    Updated: 2023/01/06 14:00:52 by hsliu            ###   ########.fr        #
+#    Updated: 2023/01/06 16:17:11 by hsliu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,17 +38,25 @@ LIB_DIR	=	libftprintf
 
 LIB		=	libftprintf/libftprintf.a
 
+MLX_DIR	=	mlx
+
+MLX		=	libmlx.dylib
+
 CC		=	cc
 
 CFLAGS	=	-Wall -Wextra -Werror -O3
 
 all: $(NAME)
 
-$(NAME)	:	$(OBJ_DIR) $(OBJ) $(INC) $(LIB) 
+$(NAME)	:	$(OBJ_DIR) $(OBJ) $(INC) $(LIB) $(MLX)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -Lmlx -lmlx -pthread -lm -framework OpenGL -framework AppKit $(LIB)
 
 valgrind	:	$(OBJ_DIR) $(OBJ) $(INC) $(LIB) 
-	$(CC) $(CFLAGS) -g -o $(NAME) $(OBJ) $(LIB)
+	$(CC) $(CFLAGS) -g -o $(NAME) $(OBJ) -Lmlx -lmlx -pthread -lm -framework OpenGL -framework AppKit $(LIB)
+
+$(MLX)	:	$(MLX_DIR)
+	$(MAKE) -C $(MLX_DIR)
+	cp ./mlx/libmlx.dylib .
 
 $(LIB): $(LIB_DIR)
 	$(MAKE) -C $(LIB_DIR)
