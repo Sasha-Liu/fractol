@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:49:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 10:59:22 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 13:15:55 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,17 @@
 # include "mlx/mlx.h"
 # include <stddef.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <math.h>
 # include "libftprintf/ft_printf.h"
 # include "libftprintf/libft/libft.h"
+# include <pthread.h>
 
 # define WIDTH	1000
 # define HEIGHT 800
 # define SCALE	1.09
-# define MAX_ITERA	50
+# define MAX_ITERA	100
+# define THRD_NUM	8
 
 typedef struct s_image	t_image;
 
@@ -51,6 +54,11 @@ typedef struct s_image{
 	t_window	*win;
 }t_image;
 
+typedef struct s_img_thread{
+	t_image	*img;
+	int		num;
+}t_img_thread;
+
 /****** initialize ******/
 void	*ft_init_win_img(t_window *win, t_image *img);
 
@@ -62,7 +70,9 @@ int		ft_key_down_hook(int keycode, void *param);
 int		ft_destroy_hook(void *param);
 
 /****** drawing function  ******/
-void	ft_draw(t_image *img, double min_re, double max_im);
+void	ft_draw(t_image *img);
+void	*ft_routine(void *arg);
+void	ft_draw_routine(t_image *img, double min_re, double max_im, int i);
 int		ft_is_which(double c_re, double c_im, t_image *img);
 int		ft_is_julia(double c_re, double c_im, t_image *img);
 int		ft_is_mandel(double c_re, double c_im);

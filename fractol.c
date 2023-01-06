@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:02:48 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 10:54:34 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 13:20:36 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	if (ft_err(argc, argv, &img))
 		return (0);
 	ft_set_hook(&win);
-	ft_draw(&img, img.a, img.b);
+	ft_draw(&img);
 	mlx_put_image_to_window(win.mlx, win.win, img.img, 0, 0);
 	mlx_loop(win.mlx);
 }
@@ -54,8 +54,8 @@ int	ft_err(int argc, char **argv, t_image *img)
 			return (1);
 		}
 		img->which = 1;
-		img->julia_a = ft_atoi(argv[2]);
-		img->julia_b = ft_atoi(argv[3]);
+		img->julia_a = 0.353;
+		img->julia_b = 0.288;
 	}
 	if (ft_strncmp(argv[1], "burning ship", 13) == 0)
 	{
