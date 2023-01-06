@@ -6,11 +6,11 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 11:17:51 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 11:18:26 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 13:54:39 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../include/fractol.h"
 
 int	ft_is_which(double c_re, double c_im, t_image *img)
 {

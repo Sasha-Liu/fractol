@@ -6,15 +6,11 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:36:00 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 12:01:58 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 14:07:54 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-
-int	ft_key_up_hook(int keycode, void *param);
-int	ft_destroy_hook(void *param);
-int	ft_key_down_hook(int keycode, void *param);
+#include "../include/fractol.h"
 
 //mlx_hook(w->window, 4, 0, mouse_press_hook, w);
 //mlx_hook(w->window, 5, 0, mouse_release_hook, w);
@@ -70,7 +66,8 @@ int	ft_key_up_hook(int keycode, void *param)
 	exit(0);
 }
 
-int	ft_destroy_hook(void *param)
+//int ft_destroy_hook(void *param)
+int	ft_destroy_hook(void)
 {
 	exit(0);
 }

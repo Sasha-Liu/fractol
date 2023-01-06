@@ -6,26 +6,26 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:49:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 13:15:55 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 14:06:34 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "mlx/mlx.h"
+# include "../mlx/mlx.h"
 # include <stddef.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
-# include "libftprintf/ft_printf.h"
-# include "libftprintf/libft/libft.h"
+# include "../libftprintf/ft_printf.h"
+# include "../libftprintf/libft/libft.h"
 # include <pthread.h>
 
-# define WIDTH	1000
-# define HEIGHT 800
+# define WIDTH	600
+# define HEIGHT 400
 # define SCALE	1.09
-# define MAX_ITERA	100
+# define MAX_ITERA	200
 # define THRD_NUM	8
 
 typedef struct s_image	t_image;
@@ -55,8 +55,9 @@ typedef struct s_image{
 }t_image;
 
 typedef struct s_img_thread{
-	t_image	*img;
-	int		num;
+	t_image		*img;
+	pthread_t	id;
+	int			num;
 }t_img_thread;
 
 /****** initialize ******/
@@ -67,7 +68,7 @@ void	ft_set_hook(t_window *w);
 int		ft_zoom_hook(int button, int x, int y, void *param);
 int		ft_key_up_hook(int keycode, void *param);
 int		ft_key_down_hook(int keycode, void *param);
-int		ft_destroy_hook(void *param);
+int		ft_destroy_hook(void);
 
 /****** drawing function  ******/
 void	ft_draw(t_image *img);

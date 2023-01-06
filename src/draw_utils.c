@@ -6,11 +6,11 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 14:01:22 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 10:57:28 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 14:15:33 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../include/fractol.h"
 
 int	ft_color_to_int(double red, double green, double blue)
 {
@@ -32,9 +32,9 @@ void	ft_paint_pixel(t_image *img, int x, int y, int n)
 	index = y * img->line_byte + x * img->pixel_bit / 8;
 	factor = 255 / MAX_ITERA;
 	if (n < MAX_ITERA / 2)
-		color = ft_color_to_int(n * factor, 0, n * factor * 2);
+		color = ft_color_to_int(0, n * factor * 2, n * factor * 2);
 	else
-		color = ft_color_to_int(127, n * factor * 2, 255);
+		color = ft_color_to_int(n * factor * 2, 255, 255);
 	if (img->endian == 1)
 	{
 		img->buffer[index + 0] = (color >> 24);

@@ -6,12 +6,11 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:32:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 12:02:17 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 13:54:54 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-#include <stdio.h>
+#include "../include/fractol.h"
 
 //only mouse scroll event
 //because obviously, the mouse position x and y are calculated diffrently

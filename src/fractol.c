@@ -6,11 +6,11 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:02:48 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 13:20:36 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/06 14:17:57 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../include/fractol.h"
 
 int	ft_err(int argc, char **argv, t_image *img);
 
@@ -21,8 +21,8 @@ int	main(int argc, char **argv)
 
 	if (ft_init_win_img(&win, &img) == NULL)
 		return (0);
-	if (ft_err(argc, argv, &img))
-		return (0);
+	//if (ft_err(argc, argv, &img))
+	//	return (0);
 	ft_set_hook(&win);
 	ft_draw(&img);
 	mlx_put_image_to_window(win.mlx, win.win, img.img, 0, 0);
