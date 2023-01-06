@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mouse_hook.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:32:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/05 14:57:56 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 10:53:13 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 //only mouse scroll event
 //because obviously, the mouse position x and y are calculated diffrently
 //depending on whether you click or scroll the mouse
-int ft_zoom_hook(int button, int x, int y, void *param)
+int	ft_zoom_hook(int button, int x, int y, void *param)
 {
 	t_window	*win;
 	t_image		*img;
 	double		new_ep;
 	double		old_ep;
-	
+
 	win = (t_window *)param;
 	img = win->img;
 	old_ep = img->epsilon;
@@ -35,7 +35,7 @@ int ft_zoom_hook(int button, int x, int y, void *param)
 	img->a = img->a + x * old_ep - x * new_ep;
 	img->b = img->b - (HEIGHT - y) * old_ep + (HEIGHT - y) * new_ep;
 	img->epsilon = new_ep;
-	ft_draw_which(img, img->a, img->b);
+	ft_draw(img, img->a, img->b);
 	mlx_put_image_to_window(win->mlx, win->win, img->img, 0, 0);
 	return (0);
 }

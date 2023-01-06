@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:49:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/05 15:04:11 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 10:59:22 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "mlx/mlx.h"
 # include <stddef.h>
 # include <stdlib.h>
+# include <math.h>
 # include "libftprintf/ft_printf.h"
 # include "libftprintf/libft/libft.h"
 
@@ -23,8 +24,6 @@
 # define HEIGHT 800
 # define SCALE	1.09
 # define MAX_ITERA	50
-# define mandelbrot 0
-# define julia 1
 
 typedef struct s_image	t_image;
 
@@ -63,9 +62,11 @@ int		ft_key_down_hook(int keycode, void *param);
 int		ft_destroy_hook(void *param);
 
 /****** drawing function  ******/
-void	ft_draw_which(t_image *img, double min_re, double max_im);
-void	ft_draw_mandel(t_image *img, double min_re, double max_im);
-void	ft_draw_julia(t_image *img, double min_re, double max_im);
+void	ft_draw(t_image *img, double min_re, double max_im);
+int		ft_is_which(double c_re, double c_im, t_image *img);
+int		ft_is_julia(double c_re, double c_im, t_image *img);
+int		ft_is_mandel(double c_re, double c_im);
+int		ft_is_burning_ship(double c_re, double c_im);
 
 /******  helper function  ******/
 int		ft_color_to_int(double red, double green, double blue);

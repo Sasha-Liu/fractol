@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:02:48 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/05 15:18:14 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 10:54:34 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	main(int argc, char **argv)
 {
 	t_window	win;
 	t_image		img;
-	
+
 	if (ft_init_win_img(&win, &img) == NULL)
 		return (0);
 	if (ft_err(argc, argv, &img))
 		return (0);
 	ft_set_hook(&win);
-	ft_draw_which(&img, img.a, img.b);
+	ft_draw(&img, img.a, img.b);
 	mlx_put_image_to_window(win.mlx, win.win, img.img, 0, 0);
 	mlx_loop(win.mlx);
 }
@@ -56,6 +56,15 @@ int	ft_err(int argc, char **argv, t_image *img)
 		img->which = 1;
 		img->julia_a = ft_atoi(argv[2]);
 		img->julia_b = ft_atoi(argv[3]);
+	}
+	if (ft_strncmp(argv[1], "burning ship", 13) == 0)
+	{
+		if (argc > 2)
+		{
+			ft_printf("Too many argument\n");
+			return (1);
+		}
+		img->which = 2;
 	}
 	return (0);
 }

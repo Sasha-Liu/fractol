@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 14:01:22 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/05 14:16:07 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 10:57:28 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_color_to_int(double red, double green, double blue)
 {
 	int	color;
+
 	color = 0;
 	color = color | (int)blue;
 	color = color | (int)green << 8;
@@ -35,19 +36,19 @@ void	ft_paint_pixel(t_image *img, int x, int y, int n)
 	else
 		color = ft_color_to_int(127, n * factor * 2, 255);
 	if (img->endian == 1)
-    {
-        img->buffer[index + 0] = (color >> 24);
-        img->buffer[index + 1] = (color >> 16) & 0xFF;
-        img->buffer[index + 2] = (color >> 8) & 0xFF;
-        img->buffer[index + 3] = (color) & 0xFF;
-    }
-    else if (img->endian == 0)
-    {
-        img->buffer[index + 0] = (color) & 0xFF;
-        img->buffer[index + 1] = (color >> 8) & 0xFF;
-        img->buffer[index + 2] = (color >> 16) & 0xFF;
-        img->buffer[index + 3] = (color >> 24);
-    }
+	{
+		img->buffer[index + 0] = (color >> 24);
+		img->buffer[index + 1] = (color >> 16) & 0xFF;
+		img->buffer[index + 2] = (color >> 8) & 0xFF;
+		img->buffer[index + 3] = (color) & 0xFF;
+	}
+	else if (img->endian == 0)
+	{
+		img->buffer[index + 0] = (color) & 0xFF;
+		img->buffer[index + 1] = (color >> 8) & 0xFF;
+		img->buffer[index + 2] = (color >> 16) & 0xFF;
+		img->buffer[index + 3] = (color >> 24);
+	}
 }
 
 void	ft_complex_square(double *real, double *img)
@@ -60,4 +61,3 @@ void	ft_complex_square(double *real, double *img)
 	*real = temp_real;
 	*img = temp_img;
 }
-

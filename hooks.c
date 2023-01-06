@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:36:00 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/05 14:58:29 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/06 11:04:24 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 int	ft_key_up_hook(int keycode, void *param);
 int	ft_destroy_hook(void *param);
@@ -43,26 +42,25 @@ int	ft_key_down_hook(int keycode, void *param)
 	win = (t_window *)param;
 	img = win->img;
 	if (keycode == 123)
-		img->a -= 0.01;
+		img->a -= img->epsilon * 5;
 	else if (keycode == 125)
-		img->b -= 0.01;
+		img->b -= img->epsilon * 5;
 	else if (keycode == 124)
-		img->a += 0.01;
+		img->a += img->epsilon * 5;
 	else if (keycode == 126)
-		img->b += 0.01;
+		img->b += img->epsilon * 5;
 	else
 		return (0);
-	ft_draw_which(img, img->a, img->b);
+	ft_draw(img, img->a, img->b);
 	mlx_put_image_to_window(win->mlx, win->win, img->img, 0, 0);
 	return (0);
 }
-
 
 int	ft_key_up_hook(int keycode, void *param)
 {
 	t_window	*win;
 	t_image		*img;
-	
+
 	if (keycode != 53)
 		return (0);
 	win = (t_window *)param;
