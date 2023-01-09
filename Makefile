@@ -6,7 +6,7 @@
 #    By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 13:55:26 by hsliu             #+#    #+#              #
-#    Updated: 2023/01/06 16:17:11 by hsliu            ###   ########.fr        #
+#    Updated: 2023/01/09 13:45:54 by hsliu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_DIR	=	./.obj/
 
 INC_DIR	=	./include/
 
-LIST_SRC	=	fractol.c ft_init.c \
+LIST_SRC	=	fractol.c ft_init.c ft_atod.c \
 				ft_draw.c draw_utils.c ft_is_which.c \
 				hooks.c ft_mouse_hook.c
 

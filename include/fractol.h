@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:49:20 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 16:02:36 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/09 15:44:48 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	*ft_init_win_img(t_window *win, t_image *img);
 /****** event hooks ******/
 void	ft_set_hook(t_window *w);
 int		ft_zoom_hook(int button, int x, int y, void *param);
-int		ft_motion_hook(int x, int y, void *param);
+int		ft_julia_motion_hook(int x, int y, void *param);
 int		ft_key_up_hook(int keycode, void *param);
 int		ft_key_down_hook(int keycode, void *param);
 int		ft_destroy_hook(void);

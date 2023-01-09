@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:02:48 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 16:36:04 by hsliu            ###   ########lyon.fr   */
+/*   Updated: 2023/01/09 13:09:02 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,32 +54,4 @@ int	ft_parse_input(int argc, char **argv, t_image *img)
 	ft_printf("\t./fractol mandelbrot\n\t./fractol julia 0.33 0.28");
 	ft_printf("\n\t./fractol \"burning ship\"\n");
 	return (1);
-}
-
-//convert asci to double
-double	ft_atod(char *str)
-{
-	double	sum;
-	double	power;
-	int		i;
-
-	sum = 0;
-	power = 1;
-	i = 0;
-	while (str[i] >= '0' && str[i] <= '9' && str[i] != '.')
-	{
-		sum = sum * 10 + (double)(str[i] - '0');
-		i++;
-	}
-	if (str[i] != '.')
-		return (sum);
-	else
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		power = power / 10;
-		sum += power * (double)(str[i] - '0');
-		i++;
-	}
-	return (sum);
 }

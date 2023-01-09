@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:36:00 by hsliu             #+#    #+#             */
-/*   Updated: 2023/01/06 14:58:15 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/01/09 15:46:01 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,36 @@ void	ft_set_hook(t_window *w)
 	mlx_do_key_autorepeaton(w->mlx);
 	mlx_hook(w->win, 2, 0, ft_key_down_hook, w);
 	mlx_hook(w->win, 3, 0, ft_key_up_hook, w);
-	mlx_hook(w->win, 6, 0, ft_motion_hook, w);
+	mlx_hook(w->win, 6, 0, ft_julia_motion_hook, w);
 	mlx_hook(w->win, 17, 0, ft_destroy_hook, w);
 	mlx_mouse_hook(w->win, ft_zoom_hook, w);
+}
+
+//only mouse scroll event
+//because obviously, the mouse position x and y are calculated diffrently
+//depending on whether you click or scroll the mouse
+int	ft_zoom_hook(int button, int x, int y, void *param)
+{
+	t_window	*win;
+	t_image		*img;
+	double		new_ep;
+	double		old_ep;
+
+	win = (t_window *)param;
+	img = win->img;
+	old_ep = img->epsilon;
+	if (button == 5)
+		new_ep = old_ep / SCALE;
+	else if (button == 4)
+		new_ep = old_ep * SCALE;
+	else
+		return (0);
+	img->a = img->a + x * old_ep - x * new_ep;
+	img->b = img->b - (HEIGHT - y) * old_ep + (HEIGHT - y) * new_ep;
+	img->epsilon = new_ep;
+	ft_draw(img);
+	mlx_put_image_to_window(win->mlx, win->win, img->img, 0, 0);
+	return (0);
 }
 
 /* left = 123
