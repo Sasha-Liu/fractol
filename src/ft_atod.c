@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atod.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/09 17:11:40 by hsliu             #+#    #+#             */
+/*   Updated: 2023/01/09 17:16:42 by hsliu            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/fractol.h"
 
-static double  ft_dec_part(char **str);
-static double  ft_tenth_part(char **str);
+static double	ft_dec_part(char **str);
+static double	ft_tenth_part(char **str);
 
 //convert asci to double
 double	ft_atod(char *str)
@@ -14,7 +26,7 @@ double	ft_atod(char *str)
 	if (*str == '-')
 	{
 		sign = -1;
-        str++;
+		str++;
 	}
 	sum += ft_dec_part(&str);
 	if (*str == '.')
@@ -26,31 +38,31 @@ double	ft_atod(char *str)
 }
 
 //calculate until meet decimal point
-static double  ft_dec_part(char **str)
+static double	ft_dec_part(char **str)
 {
-    double  sum;
+	double	sum;
 
-    sum = 0;
-    while (**str >= '0' && **str <= '9')
+	sum = 0;
+	while (**str >= '0' && **str <= '9')
 	{
 		sum = sum * 10 + (double)(**str - '0');
 		(*str)++;
 	}
-    return (sum);
+	return (sum);
 }
 
-static double  ft_tenth_part(char **str)
+static double	ft_tenth_part(char **str)
 {
-    double  sum;
-    double  power;
+	double	sum;
+	double	power;
 
-    sum = 0;
-    power = 1;
-    while (**str >= '0' && **str <= '9')
+	sum = 0;
+	power = 1;
+	while (**str >= '0' && **str <= '9')
 	{
 		power = power / 10;
 		sum += power * (double)(**str - '0');
 		(*str)++;
 	}
-    return (sum);
+	return (sum);
 }
